@@ -1,0 +1,369 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F7FA;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    height: calc(100vh - 40px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 20%;
+    background-color: #F0F4F8;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .menu li {
+    margin-bottom: 20px;
+}
+
+.sidebar .menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .menu li a i {
+    margin-right: 10px;
+}
+
+.sidebar .profile {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .profile img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sidebar .profile .name {
+    font-weight: 600;
+}
+
+.sidebar .profile .email {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Main Content Styles */
+.main-content {
+    width: 80%;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.main-content .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.main-content .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.main-content .header .actions {
+    display: flex;
+    align-items: center;
+}
+
+.main-content .header .actions i {
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.main-content .header .actions .btn {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Statistics Cards */
+.main-content .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.main-content .stats .card {
+    background-color: #F0F4F8;
+    border-radius: 20px;
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+.main-content .stats .card:last-child {
+    margin-right: 0;
+}
+
+.main-content .stats .card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.main-content .stats .card .value {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.main-content .stats .card .progress {
+    background-color: #E0E7FF;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+}
+
+.main-content .stats .card .progress .bar {
+    background-color: #4A90E2;
+    height: 100%;
+    border-radius: 10px;
+    width: 35%;
+}
+
+/* Specific Card Styles */
+.main-content .stats .card.efficiency {
+    background-color: #E0E7FF;
+}
+
+.main-content .stats .card.tasks,
+.main-content .stats .card.online-time {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E7FF;
+}
+
+/* Performance Section */
+.main-content .performance {
+    background-color: #F0F4F8;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.main-content .performance h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main-content .performance .chart {
+    height: 200px;
+    background: url('https://placehold.co/600x200') no-repeat center center;
+    background-size: cover;
+}
+
+/* Departments Section */
+.main-content .departments {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.main-content .departments .card {
+    background-color: #F0F4F8;
+    border-radius: 20px;
+    padding: 20px;
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.main-content .departments .card:last-child {
+    margin-right: 0;
+}
+
+.main-content .departments .card img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.main-content .departments .card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.main-content .departments .card .members {
+    font-size: 14px;
+    color: #666;
+}
+
+.main-content .departments .card.ui-designers {
+    background-color: #E0E7FF;
+}
+
+.main-content .departments .card.sales,
+.main-content .departments .card.seo {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E7FF;
+}
+
+/* Reviews Section */
+.main-content .reviews {
+    background-color: #F0F4F8;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.main-content .reviews h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main-content .reviews .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-content .reviews .list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-content .reviews .list li:last-child {
+    margin-bottom: 0;
+}
+
+.main-content .reviews .list li img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.main-content .reviews .list li .info {
+    flex-grow: 1;
+}
+
+.main-content .reviews .list li .info .name {
+    font-weight: 600;
+}
+
+.main-content .reviews .list li .info .role {
+    font-size: 14px;
+    color: #666;
+}
+
+.main-content .reviews .list li .actions {
+    display: flex;
+    align-items: center;
+}
+
+.main-content .reviews .list li .actions i {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.main-content .reviews .list li .actions .btn {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Submenu dropdown */
+.sidebar .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Submenu disembunyikan secara default */
+}
+
+.sidebar .submenu li {
+    margin-top: 10px;
+}
+
+.sidebar .submenu li a {
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 20px; /* Indentasi lebih untuk submenu */
+    color: #666; /* Warna teks submenu */
+}
+
+/* Mengatur posisi ikon panah kecil */
+.sidebar .menu li a .arrow-icon {
+    margin-left: auto; /* Membuat ikon panah berada di paling kanan */
+    transition: transform 0.3s ease; /* Animasi rotasi panah saat dropdown dibuka */
+}
+
+.sidebar .dropdown.open .arrow-icon {
+    transform: rotate(180deg); /* Memutar panah saat submenu terbuka */
+}
+/* Styling untuk submenu agar tersembunyi secara default */
+.sidebar .menu .submenu {
+    display: none; /* Submenu disembunyikan */
+    list-style: none;
+    padding-left: 20px; /* Memberi jarak dari menu utama */
+    margin-top: 10px;
+}
+
+.sidebar .menu .submenu li {
+    margin-bottom: 10px;
+}
+
+.sidebar .menu .submenu li a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 14px;
+}
+

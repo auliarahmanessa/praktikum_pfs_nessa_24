@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas PFS 3</title>
+    <!-- Menyertakan library Chart.js dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* CSS untuk styling container */
+        .container {
+            width: 600px; /* Lebar container 600px */
+            margin: auto; /* Menjaga agar container berada di tengah */
+            padding: 20px; /* Memberi padding di sekitar kontainer */
+        }
+
+        canvas {
+            /* Mengatur ukuran canvas sesuai yang diinginkan */
+            width: 600px !important; /* Lebar canvas 600px */
+            height: 250px !important; /* Tinggi canvas 200px */
+        }
+    </style>
+    <title>Team Management</title>
+    <!-- External CSS -->
+    <link href="styles.css" rel="stylesheet"/>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div>
+                <div class="logo">
+                    <img alt="Logo" height="30" width="30"/>
+                    <span>Telkom</span>
+                </div>
+                <ul class="menu">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            Teams
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bullseye"></i>
+                            Goals
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-tasks"></i>
+                            Private tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            Analytics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-alt"></i>
+                            Documents
+                        </a>
+                        <li class="dropdown">
+                            <a href="#" id="settings-menu">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                                <i class="fas fa-chevron-down arrow-icon"></i> <!-- Panah kecil -->
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Account Settings</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </li>                                 
+                </ul>
+            </div>
+            <div class="profile">
+                <img alt="Profile Picture" height="40" width="40"/>
+                <div>
+                    <div class="name">Sukijah</div>
+                    <div class="email">sukijah@workmail.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Team Management</h1>
+                <div class="actions">
+                    <i class="fas fa-bell" id="notification-icon"></i>
+                    <i class="fas fa-user-circle"></i>
+                    <a class="btn" href="#">Upgrade plan</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="card efficiency">
+                    <h2>Efficiency</h2>
+                    <div class="value" id="efficiency-value">87%</div>
+                    <div class="progress">
+                        <div class="bar" id="efficiency-bar" style="width: 87%;"></div>
+                    </div>
+                </div>
+                <div class="card tasks">
+                    <h2>Tasks this week</h2>
+                    <div class="value" id="tasks-value">15</div>
+                    <div class="progress">
+                        <div class="bar" id="tasks-bar" style="width: 35%;"></div>
+                    </div>
+                </div>
+                <div class="card online-time">
+                    <h2>Online time per day</h2>
+                    <div class="value" id="online-time-value">9.2 h</div>
+                    <div class="progress">
+                        <div class="bar" id="online-time-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+    <h2>Team Performance</h2>
+
+    <!-- Mengganti teks 600x200 dengan elemen canvas -->
+    <canvas id="teamPerformanceChart"></canvas>
+
+    <!-- Tambahkan script untuk menggambar grafik menggunakan Chart.js -->
+    <script>
+        const ctx = document.getElementById('teamPerformanceChart').getContext('2d');
+        
+        // Membuat grafik garis menggunakan Chart.js
+        const teamPerformanceChart = new Chart(ctx, {
+            type: 'line', // Jenis grafik yang digunakan: garis
+            data: {
+                labels: ['Winter', 'Spring', 'Summer', 'Autumn'], // Label sumbu X
+                datasets: [
+                    {
+                        label: 'Dev team', // Nama dataset pertama (tim pengembang)
+                        data: [50, 75, 87, 40], // Data performa Dev team
+                        borderColor: '#000000', // Warna garis (hitam)
+                        backgroundColor: 'rgba(0, 0, 0, 0.1)', // Warna bayangan garis
+                        borderWidth: 2, // Ketebalan garis
+                        tension: 0.4, // Kelengkungan garis
+                        pointBackgroundColor: '#000000', // Warna titik data
+                    },
+                    {
+                        label: 'Design team', // Nama dataset kedua (tim desain)
+                        data: [40, 60, 70, 30], // Data performa Design team
+                        borderColor: '#C19AFF', // Warna garis (ungu muda)
+                        backgroundColor: 'rgba(193, 154, 255, 0.3)', // Warna bayangan garis
+                        borderWidth: 2, // Ketebalan garis
+                        tension: 0.4, // Kelengkungan garis
+                        pointBackgroundColor: '#C19AFF', // Warna titik data
+                    }
+                ]
+            },
+            options: {
+                responsive: false, // Menonaktifkan responsif agar ukuran tetap
+                scales: {
+                    y: {
+                        beginAtZero: true, // Skala Y dimulai dari 0
+                        max: 100, // Batas maksimal skala Y adalah 100
+                        ticks: {
+                            stepSize: 25, // Langkah skala di sumbu Y adalah 25%
+                            callback: function(value) {
+                                return value + '%'; // Menambahkan simbol '%' di sumbu Y
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</div>
+            <div class="departments">
+                <div class="card ui-designers">
+                    <img alt="Visual UI designers" height="40" width="40"/>
+                    <h3>Visual UI designers</h3>
+                    <div class="members">+23</div>
+                </div>
+                <div class="card sales">
+                    <img alt="Accounting Sales" height="40" width="40"/>
+                    <h3>Accounting Sales</h3>
+                    <div class="members">+12</div>
+                </div>
+                <div class="card seo">
+                    <img alt="Content SEO" height="40" width="40"/>
+                    <h3>Content SEO</h3>
+                    <div class="members">+7</div>
+                </div>
+            </div>
+            <div class="reviews">
+                <h2>Need review</h2>
+                <ul class="list">
+                    <li>
+                        <img alt="Paijo" height="40" width="40"/>
+                        <div class="info">
+                            <div class="name">Paijo</div>
+                            <div class="role">Marketing coordinator</div>
+                        </div>
+                        <div class="actions">
+                            <i class="fas fa-pen"></i>
+                            <a class="btn" href="#">Manage personal</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="Jomblo" height="40" width="40"/>
+                        <div class="info">
+                            <div class="name">Jomblo</div>
+                            <div class="role">Web designer</div>
+                        </div>
+                        <div class="actions">
+                            <i class="fas fa-pen"></i>
+                            <a class="btn" href="#">Manage personal</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img alt="Jones" height="40" width="40"/>
+                        <div class="info">
+                            <div class="name">Jones</div>
+                            <div class="role">PM manager</div>
+                        </div>
+                        <div class="actions">
+                            <i class="fas fa-pen"></i>
+                            <a class="btn" href="#">Manage personal</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
